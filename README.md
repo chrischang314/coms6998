@@ -48,13 +48,13 @@ The complete raw results of all experiments can be viewed
 [here](https://docs.google.com/spreadsheets/d/1adBwBOmPLS-ncAkVbgwZ_ATcs_bPJR6sGlygCJfz3Bk/edit?usp=sharing).
 
 Here are some of our summarized results. For the 4 GPU case, we present four different dynamic batching algorithms: 
-dynamically increasing, dynamically decreasing, dynamically changing based on loss, and static.
+dynamically increasing, dynamically decreasing, dynamically changing based on loss, and static. \
 ![4 GPU Results](images/dynamicbatching_4gpu.png) \
 What is interesting is both dynamically decreasing and dynamically changing converged significantly quicker than static 
 and dynamically increasing, which goes contrary to our initial intuition that you would want larger batch sizes near the 
 end of training. We can attribute this to synchronization overhead when running dynamic batching in a data parallel 
 environment. Our loss-based algorithm also seemed to decrease batch size when given the loss of the previous epoch. For 
-the 2 GPU case, we show the results of a dynamic batching algorithm compared to a static batching scheme on accuracy:
+the 2 GPU case, we show the results of a dynamic batching algorithm compared to a static batching scheme on accuracy: \
 ![2 GPU Results](images/dynamicbatching_2gpu.png) \
 We can see that our dynamic batching algorithm behaves exactly as we expect it to behave in theory, with faster initial
 convergence and stable convergence later on. Interestingly, our loss-based dynamic batching algorithm in this case chose
